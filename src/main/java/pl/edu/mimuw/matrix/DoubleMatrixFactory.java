@@ -5,7 +5,7 @@ public class DoubleMatrixFactory {
   private DoubleMatrixFactory() {
   }
 
-  public static IDoubleMatrix sparse(Shape shape, MatrixCellValue... values){
+  public static IDoubleMatrix sparse(Shape shape, MatrixCellValue... values) {
     return null; // Tu trzeba wpisać właściwą instrukcję
   }
 
@@ -32,4 +32,22 @@ public class DoubleMatrixFactory {
   public static IDoubleMatrix zero(Shape shape) {
     return null; // Tu trzeba wpisać właściwą instrukcję
   }
+
+//  New constructors:
+
+  // Constannt matrix.
+  public static IDoubleMatrix constant(Shape shape, double value) {
+    return null;
+  }
+
+  //  Constant columns.
+  public static IDoubleMatrix columns(Shape shape, double... columnValues) {
+    return null;
+  }
+
+  //  Constant rows.
+  public static IDoubleMatrix rows(Shape shape, double... rowValues) {
+    return null;
+  }
+
 }
