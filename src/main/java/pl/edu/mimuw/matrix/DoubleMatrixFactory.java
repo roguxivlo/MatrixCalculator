@@ -10,7 +10,13 @@ public class DoubleMatrixFactory {
   }
 
   public static IDoubleMatrix full(double[][] values) {
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert values.length > 0;
+    assert values[0].length > 0;
+    for (int i = 0; i < values.length; i++) {
+      assert values[i].length == values[0].length;
+    }
+
+    return new FullMatrix(values);
   }
 
   public static IDoubleMatrix identity(int size) {
@@ -25,8 +31,15 @@ public class DoubleMatrixFactory {
     return null; // Tu trzeba wpisać właściwą instrukcję
   }
 
+//  Vector has dimensions n x 1.
   public static IDoubleMatrix vector(double... values){
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert values.length > 0;
+    double newValues[][] = new double[1][values.length];
+    for (int i = 0; i < values.length; i++) {
+      newValues[0][i] = values[i];
+    }
+
+    return new Vector(newValues);
   }
 
   public static IDoubleMatrix zero(Shape shape) {

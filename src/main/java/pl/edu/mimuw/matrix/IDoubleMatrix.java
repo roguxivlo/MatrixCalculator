@@ -32,7 +32,7 @@ public interface IDoubleMatrix {
 
     for (int rowId = 0; rowId < k; rowId++) {
       for (int colId = 0; colId < l; colId++) {
-        data[rowId][colId] = this.get(rowId) * scalar;
+        data[rowId][colId] = this.get(rowId, colId) * scalar;
       }
     }
 
