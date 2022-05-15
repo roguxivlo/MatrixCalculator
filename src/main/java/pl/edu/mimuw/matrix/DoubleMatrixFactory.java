@@ -10,6 +10,7 @@ public class DoubleMatrixFactory {
   }
 
   public static IDoubleMatrix full(double[][] values) {
+    assert values != null;
     assert values.length > 0;
     assert values[0].length > 0;
     for (int i = 0; i < values.length; i++) {
@@ -33,13 +34,14 @@ public class DoubleMatrixFactory {
 
 //  Vector has dimensions n x 1.
   public static IDoubleMatrix vector(double... values){
+    assert values != null;
     assert values.length > 0;
-    double newValues[][] = new double[1][values.length];
+    double newValues[][] = new double[values.length][1];
     for (int i = 0; i < values.length; i++) {
-      newValues[0][i] = values[i];
+      newValues[i][0] = values[i];
     }
 
-    return new Vector(newValues);
+    return new FullMatrix(newValues);
   }
 
   public static IDoubleMatrix zero(Shape shape) {
@@ -50,7 +52,8 @@ public class DoubleMatrixFactory {
 
   // Constannt matrix.
   public static IDoubleMatrix constant(Shape shape, double value) {
-    return null;
+    assert shape != null;
+    return new ConstantMatrix(shape, value);
   }
 
   //  Constant columns.

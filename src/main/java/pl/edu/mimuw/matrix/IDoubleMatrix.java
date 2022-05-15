@@ -42,9 +42,10 @@ public interface IDoubleMatrix {
   default IDoubleMatrix plus(IDoubleMatrix other) {
     int k = this.shape().rows, l = this.shape().columns,
             m = other.shape().rows, n = other.shape().columns;
-//    Check if dimensions maatch.
-    assert (k == m && l == n);
-    assert (k > 0 && l > 0);
+//    Check if dimensions match.
+    assert this.shape().equals(other.shape());
+//    assert (k == m && l == n);
+//    assert (k > 0 && l > 0);
 
     double data[][] = new double[k][l];
 
@@ -77,8 +78,9 @@ public interface IDoubleMatrix {
     int k = this.shape().rows, l = this.shape().columns,
             m = other.shape().rows, n = other.shape().columns;
 //    Check if dimensions maatch.
-    assert (k == m && l == n);
-    assert (k > 0 && l > 0);
+    assert this.shape().equals(other.shape());
+//    assert (k == m && l == n);
+//    assert (k > 0 && l > 0);
 
     double data[][] = new double[k][l];
 

@@ -93,7 +93,7 @@ public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
   public String toString() {
     StringBuilder result = new StringBuilder();
     int k = this.shape().columns, n = this.shape().rows;
-
+    result.append("Rozmiar: " + n + " x " + k + "\n");
     for (int rowId = 0; rowId < n; rowId++) {
       for (int colId = 0; colId < k; colId++) {
         result.append(data[rowId][colId] + "  ");
