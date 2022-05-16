@@ -6,7 +6,7 @@ public interface IDoubleMatrix {
     int k = this.shape().rows, l = this.shape().columns,
             m = other.shape().rows, n = other.shape().columns;
 //  Check if dimensions match.
-    assert (l == m) && (k > 0 && l > 0 && n > 0);
+    assert l == m;
     double[][] data = new double[k][n];
     double result = 0;
 
@@ -25,8 +25,6 @@ public interface IDoubleMatrix {
 
   default IDoubleMatrix times(double scalar) {
     int k = this.shape().rows, l = this.shape().columns;
-
-    assert (k > 0 && l > 0);
 
     double[][] data = new double[k][l];
 
