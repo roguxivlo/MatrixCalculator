@@ -25,11 +25,17 @@ public class DoubleMatrixFactory {
   }
 
   public static IDoubleMatrix diagonal(double... diagonalValues) {
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert diagonalValues != null;
+    assert diagonalValues.length > 0;
+
+    return new DiagonalMatrix(diagonalValues);
   }
 
   public static IDoubleMatrix antiDiagonal(double... antiDiagonalValues) {
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert antiDiagonalValues != null;
+    assert antiDiagonalValues.length > 0;
+
+    return new AntiDiagonalMatrix(antiDiagonalValues);
   }
 
 //  Vector has dimensions n x 1.
@@ -51,7 +57,7 @@ public class DoubleMatrixFactory {
 
 //  New constructors:
 
-  // Constannt matrix.
+  // Constant matrix.
   public static IDoubleMatrix constant(Shape shape, double value) {
     assert shape != null;
     return new ConstantMatrix(shape, value);

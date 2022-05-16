@@ -109,7 +109,15 @@ public interface IDoubleMatrix {
 
   double get(int row, int column);
 
-  double[][] data();
+  default double[][] data() {
+    double[][] result = new double[this.shape().rows][this.shape().columns];
+    for (int rowId = 0; rowId < this.shape().rows; rowId++) {
+      for (int colId = 0; colId < this.shape().columns; colId++) {
+        result[rowId][colId] = this.get(rowId, colId);
+      }
+    }
+    return result;
+  }
 
   double normOne();
 
