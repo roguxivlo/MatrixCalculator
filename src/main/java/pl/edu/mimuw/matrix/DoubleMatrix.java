@@ -1,6 +1,7 @@
 package pl.edu.mimuw.matrix;
 
 public abstract class DoubleMatrix implements IDoubleMatrix {
+
   private Shape shape;
   protected double normOne = -1;
   protected double normInfinity = -1;

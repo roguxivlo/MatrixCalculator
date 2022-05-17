@@ -21,7 +21,8 @@ public class DoubleMatrixFactory {
   }
 
   public static IDoubleMatrix identity(int size) {
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert size > 0;
+    return new IdentityMatrix(size);
   }
 
   public static IDoubleMatrix diagonal(double... diagonalValues) {
