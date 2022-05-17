@@ -18,16 +18,34 @@ public class Main {
 
   public static void main(String[] args) {
     // Tu trzeba wpisać kod testujący toString dla poszczególnych macierzy i wyników operacji
-    final SparseMatrix l = new SparseMatrix(
-            Shape.matrix(1_000_000, 1_000_000_000),
-            MatrixCellValue.cell(0, 0, 3),
-            MatrixCellValue.cell(0, 213, 2),
-            MatrixCellValue.cell(0, 555_555, 66),
+    Shape shape = Shape.matrix(10, 10);
 
-            MatrixCellValue.cell(456_456, 1, 7),
-            MatrixCellValue.cell(456_456, 321, 8),
-            MatrixCellValue.cell(456_456, 444_444, 66)
+    double[] Values = new double[]{1, -2, 3, -4, 5, -6, 7, -8, 9, -10};
 
-    );
+    IDoubleMatrix constant = DoubleMatrixFactory.constant(shape, Values[0]);
+    IDoubleMatrix columns = DoubleMatrixFactory.columns(shape, Values);
+    IDoubleMatrix rows = DoubleMatrixFactory.rows(shape, Values);
+
+//    Macierz Zerowa
+    System.out.println(DoubleMatrixFactory.zero(shape));
+
+//    Macierz stała
+    System.out.println(constant.toString());
+
+//    Macierz kolumnowa
+    System.out.println(columns.toString());
+
+//    Macierz Wierszowa
+    System.out.println(rows.toString());
+
+//    Wektor
+    System.out.println(DoubleMatrixFactory.vector(Values));
+
+//    Macierz Diagonalna
+    System.out.println(DoubleMatrixFactory.diagonal(Values));
+
+//    Macierz Antydiagonalna
+    System.out.println(DoubleMatrixFactory.antiDiagonal(Values));
+
   }
 }

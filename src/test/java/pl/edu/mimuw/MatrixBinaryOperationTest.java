@@ -12,6 +12,10 @@ import static pl.edu.mimuw.TestMatrixData.assertArrayEqualsWithTestPrecision;
 import static pl.edu.mimuw.matrix.DoubleMatrixFactory.zero;
 import static pl.edu.mimuw.matrix.MatrixCellValue.cell;
 import static pl.edu.mimuw.matrix.Shape.matrix;
+import static pl.edu.mimuw.matrix.DoubleMatrixFactory.constant;
+import static pl.edu.mimuw.matrix.DoubleMatrixFactory.columns;
+import static pl.edu.mimuw.matrix.DoubleMatrixFactory.rows;
+
 
 public class MatrixBinaryOperationTest {
 
@@ -32,7 +36,6 @@ public class MatrixBinaryOperationTest {
   @ArgumentsSource(TestMatrixSameArgumentProvider.class)
   void testMinusMatrices(IDoubleMatrix l, IDoubleMatrix r) {
     final var result = l.minus(r).data();
-
     final var expectedResult = new double[][]{
       new double[]{0, 0, 0},
       new double[]{0, 0, 0},
@@ -180,5 +183,56 @@ public class MatrixBinaryOperationTest {
     final var expectedResult = m.data();
     assertArrayEqualsWithTestPrecision(expectedResult, z.plus(m).data());
     assertArrayEqualsWithTestPrecision(expectedResult, m.plus(z).data());
+  }
+
+//  NOWE TESTY:
+
+  @Test
+  void newTypesTests() {
+    var shape = matrix(5,5);
+    final var l = constant(shape, 6);
+    final var r = constant(shape, 4);
+
+    final var result = l.plus(r).data();
+
+    double[][] expected = new double[][]{
+            new double[]{10, 10, 10},
+            new double[]{10, 10, 10}
+    };
+
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        assert result[i][j] == 10;
+      }
+    }
+
+    double[][] newexpected = new double[][]{
+            new double[]{2, 2, 2},
+            new double[]{2, 2, 2}
+    };
+
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        assert l.minus(r).data()[i][j] == 2;
+      }
+    }
+
+    final var col1 = columns(shape, 1, 2, 3, 4, 5);
+    final var col2 = columns(shape, 9, 8, 7, 6, 5);
+
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        assert col1.plus(col2).data()[i][j] == 10;
+      }
+    }
+
+    final var row1 = rows(shape, 1, 2, 3, 4, 5);
+    final var row2 = rows(shape, 9, 8, 7, 6, 5);
+
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        assert row1.plus(row2).data()[i][j] == 10;
+      }
+    }
   }
 }

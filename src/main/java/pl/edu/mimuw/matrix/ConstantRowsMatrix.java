@@ -95,7 +95,7 @@ public final class ConstantRowsMatrix extends DoubleMatrix implements IDoubleMat
     result.append("Rozmiar: " + this.shape().rows + " x " + this.shape().columns + "\n");
     if (this.shape().columns >= 3) {
       for (int i = 0; i <this.shape().rows; i++) {
-        result.append(rowValues[i] + "..." + rowValues[i] + "\n");
+        result.append(rowValues[i] + " ... " + rowValues[i] + "\n");
       }
     }
     else {

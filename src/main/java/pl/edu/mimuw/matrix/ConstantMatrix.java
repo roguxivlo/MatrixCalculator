@@ -65,7 +65,7 @@ public class ConstantMatrix extends DoubleMatrix implements IDoubleMatrix {
     }
     else {
       for (int i = 0; i < this.shape().rows; i++) {
-        result.append(value + "..." + value);
+        result.append(value + " ... " + value);
         result.append("\n");
       }
     }

@@ -16,7 +16,6 @@ public final class ZeroMatrix extends ConstantMatrix implements IDoubleMatrix {
 //  Check if dimensions match.
     assert l == m;
     return DoubleMatrixFactory.zero(Shape.matrix(k,n));
-//    return new ZeroMatrix(Shape.matrix(k, n));
   }
 
   @Override

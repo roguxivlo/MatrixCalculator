@@ -7,6 +7,8 @@ public final class MatrixCellValue implements Comparable<MatrixCellValue> {
   public final double value;
 
   public MatrixCellValue(int row, int column, double value) {
+    assert row >= 0;
+    assert column >= 0;
     this.column = column;
     this.row = row;
     this.value = value;

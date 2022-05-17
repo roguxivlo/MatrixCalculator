@@ -14,7 +14,7 @@ public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
     if (normOne < 0) {
       double result = 0;
       for (int i = 0; i < values.length; i++) {
-        result = Math.max(result, values[i]);
+        result = Math.max(result, Math.abs(values[i]));
       }
       normOne = result;
       normInfinity = result;
@@ -27,7 +27,7 @@ public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
     if (normInfinity < 0) {
       double result = 0;
       for (int i = 0; i < values.length; i++) {
-        result = Math.max(result, values[i]);
+        result = Math.max(result, Math.abs(values[i]));
       }
       normOne = result;
       normInfinity = result;
@@ -62,7 +62,7 @@ public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
         colId++;
       }
       if (zeroCounter >= 3) {
-        result.append("0" + "..." + "0");
+        result.append(" 0" + "..." + "0 ");
       }
       else {
         for (int i = 0; i < zeroCounter; i++) {
@@ -79,7 +79,7 @@ public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
         colId++;
       }
       if (zeroCounter >= 3) {
-        result.append("0" + "..." + "0");
+        result.append(" 0" + "..." + "0 ");
       }
       else {
         for (int i = 0; i < zeroCounter; i++) {

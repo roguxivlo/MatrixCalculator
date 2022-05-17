@@ -50,24 +50,24 @@ public final class DiagonalMatrix extends Diagonal implements IDoubleMatrix {
     }
   }
 
-  @Override
-  public IDoubleMatrix plus(double scalar) {
-    double[] newValues = new double[this.shape().columns];
-    for (int i = 0; i < this.shape().columns; i++) {
-      newValues[i] = scalar + values[i];
-    }
-    return DoubleMatrixFactory.diagonal(newValues);
-  }
+//  @Override
+//  public IDoubleMatrix plus(double scalar) {
+//    double[] newValues = new double[this.shape().columns];
+//    for (int i = 0; i < this.shape().columns; i++) {
+//      newValues[i] = scalar + values[i];
+//    }
+//    return DoubleMatrixFactory.diagonal(newValues);
+//  }
 
   @Override
   public IDoubleMatrix minus(IDoubleMatrix other) {
     return this.plus(other.times(-1));
   }
 
-  @Override
-  public IDoubleMatrix minus(double scalar) {
-    return this.plus(-scalar);
-  }
+//  @Override
+//  public IDoubleMatrix minus(double scalar) {
+//    return this.plus(-scalar);
+//  }
 
   @Override
   public double get(int row, int column) {

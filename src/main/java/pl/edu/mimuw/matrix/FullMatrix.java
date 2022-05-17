@@ -40,10 +40,10 @@ public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
         result = Math.max(result, tmp);
         tmp = 0;
         for (int rowId = 0; rowId < n; rowId++) {
-          tmp += data[rowId][colId];
+          tmp += Math.abs(data[rowId][colId]);
         }
       }
-
+      result = Math.max(result, tmp);
       normOne = result;
     }
 
@@ -60,13 +60,12 @@ public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
         result = Math.max(result, tmp);
         tmp = 0;
         for (int colId = 0; colId < k; colId++) {
-          tmp += data[rowId][colId];
+          tmp += Math.abs(data[rowId][colId]);
         }
       }
-
+      result = Math.max(result, tmp);
       normInfinity = result;
     }
-
     return normInfinity;
   }
 
