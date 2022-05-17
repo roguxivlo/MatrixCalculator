@@ -11,20 +11,34 @@ public final class SparseMatrix extends DoubleMatrix implements IDoubleMatrix {
   public SparseMatrix(Shape shape, MatrixCellValue... values) {
     super(shape.rows, shape.columns);
     //    How many non-zero rows are there?
+
+//    MatrixCellValue[] values = sparseValues;
+    nonZeroRows = new ArrayList<Integer>();
+    nonZeroColumns = new ArrayList<Integer>();
     Arrays.sort(values);
     int tmp;
     for (int i = 0; i < values.length; i=i) {
       nonZeroRows.add(values[i].row);
       tmp = values[i].row;
-      while(values[i].row == tmp && i < values.length) i++;
+      while(i < values.length && values[i].row == tmp) i++;
     }
 
-    this.values = new ArrayList<ArrayList<MatrixCellValue>>(nonZeroRows.size());
+
+    this.values = new ArrayList<ArrayList<MatrixCellValue>>();
+    for (int i = 0; i < nonZeroRows.size(); i++) {
+      this.values.add(new ArrayList<MatrixCellValue>());
+    }
+
+    System.out.println("niezerowe wiersze: " + nonZeroRows.size());
+    System.out.println("Ilość wierszolist: " + this.values.size());
+    System.out.println("Być albo nie być: " + this.values.get(0) == null);
     int rowCounter = 0;
     for (int i = 0; i < values.length; i=i) {
       tmp = values[i].row;
-      while (tmp == values[i].row && i < values.length) {
+      System.out.println(tmp);
+      while (i < values.length && tmp == values[i].row) {
         this.values.get(rowCounter).add(values[i]);
+        i++;
       }
       rowCounter++;
     }
@@ -41,14 +55,18 @@ public final class SparseMatrix extends DoubleMatrix implements IDoubleMatrix {
     for (int i = 0; i < values.length; i=i) {
       nonZeroColumns.add(values[i].column);
       tmp = values[i].column;
-      while(values[i].column == tmp && i < values.length) i++;
+      while(i < values.length && values[i].column == tmp) i++;
     }
-    valuesTransposed = new ArrayList<ArrayList<MatrixCellValue>>(nonZeroColumns.size());
+    valuesTransposed = new ArrayList<ArrayList<MatrixCellValue>>();
+    for (int i = 0; i < nonZeroColumns.size(); i++) {
+      valuesTransposed.add(new ArrayList<MatrixCellValue>());
+    }
     int columnCounter = 0;
     for (int i = 0; i < values.length; i=i) {
       tmp = values[i].column;
-      while (tmp == values[i].column && i < values.length) {
+      while (i < values.length && tmp == values[i].column) {
         valuesTransposed.get(columnCounter).add(values[i]);
+        i++;
       }
       columnCounter++;
     }
@@ -68,6 +86,8 @@ public final class SparseMatrix extends DoubleMatrix implements IDoubleMatrix {
       }
     }
 
+    System.out.println(nonZeroRows);
+    System.out.println(nonZeroColumns);
 
   }
 
