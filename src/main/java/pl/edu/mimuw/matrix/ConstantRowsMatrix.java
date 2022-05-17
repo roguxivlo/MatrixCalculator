@@ -108,5 +108,4 @@ public final class ConstantRowsMatrix extends DoubleMatrix implements IDoubleMat
     }
     return result.toString();
   }
-
 }

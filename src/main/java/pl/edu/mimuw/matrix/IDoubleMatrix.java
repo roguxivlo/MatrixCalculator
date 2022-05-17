@@ -42,8 +42,6 @@ public interface IDoubleMatrix {
             m = other.shape().rows, n = other.shape().columns;
 //    Check if dimensions match.
     assert this.shape().equals(other.shape());
-//    assert (k == m && l == n);
-//    assert (k > 0 && l > 0);
 
     double data[][] = new double[k][l];
 
@@ -73,38 +71,11 @@ public interface IDoubleMatrix {
   }
 
   default IDoubleMatrix minus(IDoubleMatrix other) {
-    int k = this.shape().rows, l = this.shape().columns,
-            m = other.shape().rows, n = other.shape().columns;
-//    Check if dimensions maatch.
-    assert this.shape().equals(other.shape());
-//    assert (k == m && l == n);
-//    assert (k > 0 && l > 0);
-
-    double data[][] = new double[k][l];
-
-    for (int rowId = 0; rowId < k; rowId++) {
-      for(int colId = 0; colId < l; colId++) {
-        data[rowId][colId] = this.get(rowId, colId) - other.get(rowId, colId);
-      }
-    }
-
-    return DoubleMatrixFactory.full(data);
+    return this.plus(other.times(-1));
   }
 
   default IDoubleMatrix minus(double scalar) {
-    int k = this.shape().rows, l = this.shape().columns;
-
-    assert (k > 0 && l > 0);
-
-    double data[][] = new double[k][l];
-
-    for (int rowId = 0; rowId < k; rowId++) {
-      for(int colId =  0; colId < l; colId++) {
-        data[rowId][colId] = this.get(rowId, colId) - scalar;
-      }
-    }
-
-    return DoubleMatrixFactory.full(data);
+    return this.plus(-scalar);
   }
 
   double get(int row, int column);

@@ -9,19 +9,11 @@ public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
     int rows = values.length, columns = values[0].length;
 
     data = values.clone();
-//    for (int rowId = 0; rowId < rows; rowId++) {
-//      for (int colId = 0; colId < columns; colId++) {
-//        assert(colId < values[rowId].length);
-//        data[rowId][colId] = values[rowId][colId];
-//      }
-//    }
   }
 
   @Override
   public double get(int row, int column) {
     this.shape().assertInShape(row, column);
-//    assert(row >= 0 && column >= 0);
-//    assert(row < this.shape().rows && column < this.shape().columns);
     return data[row][column];
   }
 
