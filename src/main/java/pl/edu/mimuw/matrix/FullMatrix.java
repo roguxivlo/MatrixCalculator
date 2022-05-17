@@ -2,7 +2,7 @@ package pl.edu.mimuw.matrix;
 import java.lang.Math;
 
 public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
-  private double data[][];
+  private final double data[][];
 
   public FullMatrix(double[][] values) {
     super(values.length, values[0].length);

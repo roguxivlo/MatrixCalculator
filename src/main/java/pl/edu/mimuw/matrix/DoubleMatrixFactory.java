@@ -6,7 +6,11 @@ public class DoubleMatrixFactory {
   }
 
   public static IDoubleMatrix sparse(Shape shape, MatrixCellValue... values) {
-    return null; // Tu trzeba wpisać właściwą instrukcję
+    assert shape != null;
+    assert values != null;
+    assert values.length > 0;
+
+    return new SparseMatrix(shape, values);
   }
 
   public static IDoubleMatrix full(double[][] values) {

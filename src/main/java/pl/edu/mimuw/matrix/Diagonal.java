@@ -2,7 +2,7 @@ package pl.edu.mimuw.matrix;
 import java.lang.Math;
 
 public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
-  protected double values[];
+  protected final double values[];
 
   public Diagonal(double values[]) {
     super(values.length, values.length);
