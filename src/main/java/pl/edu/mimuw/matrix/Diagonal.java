@@ -6,7 +6,7 @@ public abstract class Diagonal extends DoubleMatrix implements IDoubleMatrix {
 
   public Diagonal(double values[]) {
     super(values.length, values.length);
-    this.values = values;
+    this.values = values.clone();
   }
 
   @Override

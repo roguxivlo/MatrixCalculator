@@ -8,7 +8,7 @@ public class FullMatrix extends DoubleMatrix implements IDoubleMatrix {
     super(values.length, values[0].length);
     int rows = values.length, columns = values[0].length;
 
-    data = values;
+    data = values.clone();
 //    for (int rowId = 0; rowId < rows; rowId++) {
 //      for (int colId = 0; colId < columns; colId++) {
 //        assert(colId < values[rowId].length);

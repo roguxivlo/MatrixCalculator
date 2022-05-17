@@ -66,12 +66,20 @@ public class DoubleMatrixFactory {
 
   //  Constant columns.
   public static IDoubleMatrix columns(Shape shape, double... columnValues) {
-    return null;
+    assert shape != null;
+    assert columnValues != null;
+    assert columnValues.length > 0;
+
+    return new ConstantColumnsMatrix(shape, columnValues);
   }
 
   //  Constant rows.
   public static IDoubleMatrix rows(Shape shape, double... rowValues) {
-    return null;
+    assert shape != null;
+    assert rowValues != null;
+    assert rowValues.length > 0;
+
+    return new ConstantRowsMatrix(shape, rowValues);
   }
 
 }
